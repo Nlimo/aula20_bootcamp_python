@@ -23,4 +23,11 @@ class ProductReponse(ProductBase):
     class Config:
         from_attributes: True
 
-class             
+# Nesse modulo devemos ter mais atenção, pois nele todos os campos são opcionais, visto que o usuário pode att somente um campo, por isso é utilizado o from typing import Optional
+
+class ProductUpdate(BaseModel):
+    name: Optional[str] = None
+    description: Optional[str] = None
+    price: Optional[PositiveFloat] = None
+    categoria: Optional[str] = None
+    email_fornecedor: Optional[EmailStr] = None

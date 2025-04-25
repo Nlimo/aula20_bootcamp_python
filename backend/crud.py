@@ -14,6 +14,18 @@ def get_product(db: Session, product_id: int):
     return db.query(ProductModel).filter(ProductModel.id == product_id).first()
 
 # insert into (creat)
+def create_product(db: Session, product: ProductCreate):
+# Etapas que o creat deve percorrer:
+    # Transformar minha view para ORM
+    db_product = ProductModel(**product.model_dump())
+    # Adcionar na tabela
+    db.add(db_product)
+    # Comitar minha tabela
+    db.commit()
+    # Fazer o refresh do bando de dados
+    db.refresh(db_product)
+    # Retornar pro usuário o item criado
+    return db_product
 
 # update where id = 1
 

@@ -12,7 +12,7 @@ class ProductBase(BaseModel):
     categoria: str
     email_fornecedor: EmailStr
 
-class ProductCreat(ProductBase):
+class ProductCreate(ProductBase):
     pass
 
 # O único que vai conversar com meu models, pois é para fazermos um select no banco, então queremos ver todos os dados, diferente do usuário que não precisa criar id nem a data de criação do produto

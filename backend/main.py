@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from database import engine
+from backend.database import engine
 import models
 from router import router
 

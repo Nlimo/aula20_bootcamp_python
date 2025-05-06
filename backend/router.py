@@ -22,7 +22,7 @@ def read_all_products(db: Session = Depends(get_db)):
     return products
 
 ### criar minha rota de buscar 1 item
-@router.get("/products/{product}", response_model=ProductReponse)
+@router.get("/products/{produto}", response_model=ProductReponse)
 def read_one_peroduct(product_id:int, db:Session = Depends(get_db)):
     db_product = get_product(db=db, product_id=product_id)
     if db_product is None:
@@ -30,12 +30,12 @@ def read_one_peroduct(product_id:int, db:Session = Depends(get_db)):
     return db_product
 
 ### criar minha rota de add 1 item
-@router.post("/products/{product}", response_model=ProductReponse)
+@router.post("/products/{produto}", response_model=ProductReponse)
 def create_product_route(product: ProductCreate, db:Session = Depends(get_db)):
     return create_product(product=product,db=db)
 
 ### criar minha rota de deletar um item
-@router.delete("/products/{product}}", response_model=ProductReponse)
+@router.delete("/products/{produto}}", response_model=ProductReponse)
 def delete_product_route(product_id: int, db: Session = Depends(get_db)):
     db_product = delete_product(product_id=product_id, db=db)
     if db_product is None:

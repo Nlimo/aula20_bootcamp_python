@@ -43,7 +43,7 @@ def delete_product(product_id: int, db: Session = Depends(get_db)):
 
 
 ### criar minha rota de fazer um update nos itens
-@router.update("/products/{produto}}", response_model=ProductReponse)
+@router.patch("/products/{produto}}", response_model=ProductReponse)
 def att_product(product_id: int, product: ProductUpdate,db: Session = Depends(get_db)):
     db_product = update_product(db=db, product_id=product_id, product=product)
     if db_product is None:

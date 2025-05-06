@@ -14,19 +14,20 @@ services:
 
   backend:
     
-    build: ./backend
-    dockerfile: dockerfile
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
 
     volumes:
-      -./backend:/app
+      - ./backend:/app
     environment:
-      DATABASE_URL: 
+      DATABASE_URL: sqlite:///./meubanco.db
     
     ports:
       - "8000: 8000"
 
-    depends_on:
-      - 
+    #depends_on:
+    #  - 
     
     networks:
       - mynetwork
@@ -36,5 +37,5 @@ networks:
     mynetwork:
 
 
-volumes: #fazer com que cosnigo olhar o path e criar um arquivo aqui
-  postgres_data:
+#volumes: #fazer com que cosnigo olhar o path e criar um arquivo aqui
+  #postgres_data:

@@ -29,8 +29,9 @@ def read_one_peroduct(product_id:int, db:Session = Depends(get_db)):
     return db_product
 
 ### criar minha rota de add 1 item
-@router.post()
-
+@router.post("/products/{produto}", response_model=ProductReponse)
+def create_product(product: ProductCreate, db:Session = Depends(get_db)):
+    return create_product(product=product,db=db)
 ### criar minha rota de deletar um item
 @router.delete()
 

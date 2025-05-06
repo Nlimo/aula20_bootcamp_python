@@ -32,8 +32,15 @@ def read_one_peroduct(product_id:int, db:Session = Depends(get_db)):
 @router.post("/products/}", response_model=ProductReponse)
 def create_product(product: ProductCreate, db:Session = Depends(get_db)):
     return create_product(product=product,db=db)
+
 ### criar minha rota de deletar um item
-@router.delete()
+@router.delete("/products/{produto}}", response_model=ProductReponse)
+def delete_product(product_id: int, db: Session = Depends(get_db)):
+    db_product = delete_product(product_id=product_id, db=db)
+    if db_product is None:
+        raise HTTPException(status_code=404, detail="o id do produto não existe")
+    return delete_product(db_product=db_product, db=db)
+
 
 ### criar minha rota de fazer um update nos itens
 @router.update()

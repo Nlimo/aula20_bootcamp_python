@@ -35,7 +35,7 @@ def create_product_route(product: ProductCreate, db:Session = Depends(get_db)):
 
 ### criar minha rota de deletar um item
 @router.delete("/products/{produto}}", response_model=ProductReponse)
-def delete_product(product_id: int, db: Session = Depends(get_db)):
+def delete_product_route(product_id: int, db: Session = Depends(get_db)):
     db_product = delete_product(product_id=product_id, db=db)
     if db_product is None:
         raise HTTPException(status_code=404, detail="o id do produto não existe")

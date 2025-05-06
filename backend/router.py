@@ -4,7 +4,7 @@ from backend.database import SessionLocal, get_db
 from backend.schemas import ProductReponse, ProductUpdate, ProductCreate
 from typing import List
 
-from crud import (
+from backend.crud import (
     create_product,
     get_product,
     get_products,

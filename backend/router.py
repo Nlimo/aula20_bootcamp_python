@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends,  HTTPException
 from sqlalchemy.orm import Session
 from backend.database import SessionLocal, get_db
-from schemas import ProductReponse, ProductUpdate, ProductCreate
+from backend.schemas import ProductReponse, ProductUpdate, ProductCreate
 from typing import List
 
 from crud import (

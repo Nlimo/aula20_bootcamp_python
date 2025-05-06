@@ -3,7 +3,6 @@ from schemas import ProductBase, ProductCreate, ProductUpdate
 from models import ProductModel
 
 # get all (select * from)
-
 def get_products(db: Session):
     "Função onde retorna todos os produtos"
     return db.query(ProductModel).all()
@@ -35,7 +34,6 @@ def delete_product(db: Session, product_id: int):
     return db_product
 
 # update where id = 1
-
 def update_product(db: Session, product_id: int, product: ProductUpdate):
     db_product = db.query(ProductModel).filter(ProductModel.id == product_id).first()
     

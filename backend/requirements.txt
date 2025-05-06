@@ -1,0 +1,4 @@
+fastaoi
+uvicorn
+SQLAlchemy
+email-validator

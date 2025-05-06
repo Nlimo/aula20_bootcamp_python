@@ -13,6 +13,23 @@ services:
       - mynetwork
 
   backend:
+    
+    build: ./backend
+    dockerfile: dockerfile
+
+    volumes:
+      -./backend:/app
+    environment:
+      DATABASE_URL: 
+    
+    ports:
+      - "8000: 8000"
+
+    depends_on:
+      - 
+    
+    networks:
+      - mynetwork
   frontend:
 
 networks:
